@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  meu-banco:                # Nome que você dá para o container
+    image: postgres:15      # A "receita" (imagem) do Postgres versão 15
+    restart: always         # Garante que o banco inicie sozinho se o PC reiniciar
+    environment:
+      POSTGRES_USER: admin  # Usuário que você usará no Postico 2
+      POSTGRES_PASSWORD: 123 # Senha que você usará no Postico 2
+      POSTGRES_DB: meubanco # Nome do seu banco de dados
+    ports:
+      - "5432:5432"         # A "fresta": conecta a porta 5432 do seu PC com a do container
+    volumes:
+      - ./dados:/var/lib/postgresql/data # A "ponte": salva os dados na pasta 'dados' no seu PC
