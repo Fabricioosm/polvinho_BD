@@ -1,6 +1,6 @@
-SET search_path TO polvinho;
+CREATE SCHEMA IF NOT EXISTS polvinho;
 
-CREATE TABLE IF NOT EXISTS schema_migrations (
+CREATE TABLE IF NOT EXISTS polvinho.schema_migrations (
 	id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 	version VARCHAR(255) UNIQUE NOT NULL,
 	name_migration VARCHAR(255) NOT NULL,
